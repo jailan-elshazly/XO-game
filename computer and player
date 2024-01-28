@@ -1,0 +1,25 @@
+def play_computer_game():
+    board = [" "] * 9
+    player = "X"
+    computer = "O"
+    turn = random.choice([player, computer])
+
+    while True:
+        display_board(board)
+        if turn == player:
+            handle_player_move(board, player)
+        else:
+            handle_computer_move(board, computer)
+
+        if check_winner(board, player):
+            display_board(board)
+            print(player + " wins!")
+            break
+        elif check_draw(board):
+            display_board(board)
+            print("It's a draw!")
+            break
+
+        turn = "O" if turn == "X" else "X"
+
+play_computer_game()
